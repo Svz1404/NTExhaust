@@ -6,7 +6,7 @@ GREEN='\033[0;32m'
 CYAN='\033[0;36m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
-#!/bin/bash
+
 echo -e '\e[34m'
 echo -e '$$\   $$\ $$$$$$$$\      $$$$$$$$\           $$\                                       $$\     '
 echo -e '$$$\  $$ |\__$$  __|     $$  _____|          $$ |                                      $$ |    '
@@ -20,20 +20,23 @@ echo -e '\e[0m'
 echo -e "Join our Telegram channel: https://t.me/NTExhaust"
 sleep 5
 
-log() {
+# Logger Function
+log_message() {
     local level=$1
     local message=$2
     local timestamp=$(date +"%Y-%m-%d %H:%M:%S")
-    local border="-----------------------------------------------------"
-    echo -e "${border}"
+    local border="----------------------------------------"
+
+    echo -e "${CYAN}${border}${NC}"
     case $level in
-        "INFO") echo -e "${CYAN}[INFO] ${timestamp} - ${message}${NC}" ;;
-        "SUCCESS") echo -e "${GREEN}[SUCCESS] ${timestamp} - ${message}${NC}" ;;
-        "ERROR") echo -e "${RED}[ERROR] ${timestamp} - ${message}${NC}" ;;
+        INFO) echo -e "${CYAN}[INFO] ${timestamp} - ${message}${NC}" ;;
+        SUCCESS) echo -e "${GREEN}[SUCCESS] ${timestamp} - ${message}${NC}" ;;
+        ERROR) echo -e "${RED}[ERROR] ${timestamp} - ${message}${NC}" ;;
         *) echo -e "${YELLOW}[UNKNOWN] ${timestamp} - ${message}${NC}" ;;
     esac
-    echo -e "${border}\n"
+    echo -e "${CYAN}${border}${NC}\n"
 }
+
 # Check if a port is available
 check_port() {
     local port=$1

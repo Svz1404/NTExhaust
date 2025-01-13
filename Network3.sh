@@ -25,16 +25,15 @@ log_message() {
     local level=$1
     local message=$2
     local timestamp=$(date +"%Y-%m-%d %H:%M:%S")
-    local border="----------------------------------------"
-
-    echo -e "${CYAN}${border}${NC}"
+    local border="-----------------------------------------------------"
+    echo -e "${border}"
     case $level in
-        INFO) echo -e "${CYAN}[INFO] ${timestamp} - ${message}${NC}" ;;
-        SUCCESS) echo -e "${GREEN}[SUCCESS] ${timestamp} - ${message}${NC}" ;;
-        ERROR) echo -e "${RED}[ERROR] ${timestamp} - ${message}${NC}" ;;
+        "INFO") echo -e "${CYAN}[INFO] ${timestamp} - ${message}${NC}" ;;
+        "SUCCESS") echo -e "${GREEN}[SUCCESS] ${timestamp} - ${message}${NC}" ;;
+        "ERROR") echo -e "${RED}[ERROR] ${timestamp} - ${message}${NC}" ;;
         *) echo -e "${YELLOW}[UNKNOWN] ${timestamp} - ${message}${NC}" ;;
     esac
-    echo -e "${CYAN}${border}${NC}\n"
+    echo -e "${border}\n"
 }
 
 # Check if a port is available

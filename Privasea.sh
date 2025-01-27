@@ -94,6 +94,7 @@ read -s keystore_password
 
 # Start the node
 echo "Starting the Privasea node..."
+cd /privasea/
 docker run -d -v "/privasea/config:/app/config" \
   -e KEYSTORE_PASSWORD="$keystore_password" \
   privasea/acceleration-node-beta:latest

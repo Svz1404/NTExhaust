@@ -52,8 +52,4 @@ cd rl-swarm
 echo "📦 Installing project dependencies using Yarn..."
 yarn install
 
-echo "🖥️ Starting RL-Swarm in a screen session named 'gensyn'..."
-screen -S gensyn -dm bash -c "cd $(pwd) && python3 -m venv .venv && source .venv/bin/activate && ./run"
-
-echo "✅ Installation and launch complete!"
-echo "➡️ Use 'screen -r gensyn' to attach to the session."
+echo "✅ Installation complete!"
